@@ -5,10 +5,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
-import org.bukkit.entity.*;
+import org.bukkit.entity.Player;
 
-
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +42,7 @@ public class PetCommand implements CommandExecutor, TabCompleter {
                 break;
             case "entries":
                 //petManager.restore(player);
-                player.sendMessage(PetManager.getEntries()+ "");
+                player.sendMessage(PetManager.getEntries() + "");
 
                 break;
             default:
@@ -54,10 +52,10 @@ public class PetCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command cmd,  String label, String[] args) {
+    public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         List<String> l = new ArrayList<String>();
-        if(cmd.getName().equalsIgnoreCase("pets") && args.length >= 0){
-            if(sender instanceof Player){
+        if (cmd.getName().equalsIgnoreCase("pets") && args.length >= 0) {
+            if (sender instanceof Player) {
                 Player player = (Player) sender;
 
                 l.add("release");
