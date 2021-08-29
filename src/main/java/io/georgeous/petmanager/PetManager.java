@@ -5,28 +5,26 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.BufferedReader;
 import java.util.*;
 
 public class PetManager extends JavaPlugin {
 
     private static HashMap<String, ArrayList<LivingEntity>> ownerPets = new HashMap<>();
 
-
     @Override
-    public void onEnable(){
+    public void onEnable() {
         registerCommands();
         registerEvents();
 
         for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-            if(playerDataExists(player)) {
+            if (playerDataExists(player)) {
                 restore(player);
             }
         }
     }
 
     @Override
-    public void onDisable(){
+    public void onDisable() {
         save();
     }
 
@@ -109,7 +107,7 @@ public class PetManager extends JavaPlugin {
 
     public static void releaseAllPets(Player player) {
         String uuid = player.getUniqueId().toString();
-        if (ownerPets.get(uuid) == null){
+        if (ownerPets.get(uuid) == null) {
             player.sendMessage("You dont have any pets");
             return;
         }
@@ -168,7 +166,7 @@ public class PetManager extends JavaPlugin {
         return this.getConfig().contains("data.pets." + player.getUniqueId().toString());
     }
 
-    public static int getEntries(){
-       return ownerPets.size();
+    public static int getEntries() {
+        return ownerPets.size();
     }
 }
