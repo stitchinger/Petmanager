@@ -1,6 +1,6 @@
 name: Petmanager
 version: ${project.version}
 main: io.georgeous.petmanager.PetManager
-api-version: 1.17
+api-version: 1.18
 commands:
   pets:
