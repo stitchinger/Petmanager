@@ -22,7 +22,7 @@ public class PetCommand implements CommandExecutor, TabCompleter {
             return true;
         }
         Player player = (Player) sender;
-
+        // Test
         switch (args[0]) {
             case "release":
                 PetManager.releaseAllPets(player);
